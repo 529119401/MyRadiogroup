@@ -149,6 +149,24 @@ public class CaishifuRadioView extends ViewGroup {
             }
 
         }
+    }
+
+
+    public void setOnItemClickListener(OnItemClickListener mListener) {
+        this.mListener = mListener;
+    }
+
+
+    private void reset() {
+        for (int i = 0; i < getChildCount(); i++) {
+            getChildAt(i).setSelected(false);
+        }
+    }
+
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
         /**
          * 点击事件
          */
@@ -165,18 +183,6 @@ public class CaishifuRadioView extends ViewGroup {
                     }
                 }
             });
-        }
-    }
-
-
-    public void setOnItemClickListener(OnItemClickListener mListener) {
-        this.mListener = mListener;
-    }
-
-
-    private void reset() {
-        for (int i = 0; i < getChildCount(); i++) {
-            getChildAt(i).setSelected(false);
         }
     }
 
